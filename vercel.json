@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "MODAL_TOKEN": "@modal_token",
+    "MODAL_API_URL": "https://api.modal.com/v1",
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url"
+  }
+} 
