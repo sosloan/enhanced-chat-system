@@ -11,7 +11,7 @@
   "dependencies": {
     "@feathersjs/client": "^5.0.8",
     "@tensorflow/tfjs": "^4.11.0",
-    "@types/node": "^20.8.2",
+    "@types/node": "^22.10.3",
     "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.8",
     "autoprefixer": "^10.4.16",
