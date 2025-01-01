@@ -12,23 +12,26 @@ export interface User {
 
 export interface Message {
   id: string;
-  type: MessageType;
-  text: string;
-  user: User;
-  timestamp: number;
+  content: string;
+  sender: string;
+  timestamp: Date;
   sentiment?: number;
   priority?: number;
   category?: string;
-  metadata?: Record<string, any>;
 }
 
 export interface Chat {
   id: string;
   title: string;
+  participants: string[];
   messages: Message[];
   isWebhookEnabled: boolean;
-  participants: User[];
-  metadata?: Record<string, any>;
+}
+
+export interface ChatMetrics {
+  sentiment: number;
+  priority: number;
+  category: string;
 }
 
 export interface ChatState {

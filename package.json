@@ -30,6 +30,8 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@feathersjs/typebox": "^5.0.31",
+    "@types/socket.io-client": "^1.4.36",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "eslint": "^8.50.0",
