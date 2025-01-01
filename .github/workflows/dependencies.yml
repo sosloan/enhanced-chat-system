@@ -1,0 +1,26 @@
+name: Dependencies
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Run weekly on Monday
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check for updates
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Enable auto-merge for Dependabot PRs
+        run: |
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh pr list --repo ${{ github.repository }} --author app/dependabot --json number --jq '.[].number' | \
+          xargs -I % gh pr merge % --auto --merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
